@@ -7,6 +7,7 @@ import { DatabaseModule } from './database/database.module';
 import { PostModule } from './post/post.module';
 import { SendgridModule } from './sendgrid/sendgrid.module';
 import { UserModule } from './user/user.module';
+import { BookcategoryModule } from './bookcategory/bookcategory.module';
 import { LoggerModule } from './logger/logger.module';
 
 @Module({
@@ -17,10 +18,11 @@ import { LoggerModule } from './logger/logger.module';
     AuthModule,
     UserModule,
     SendgridModule,
+    BookcategoryModule,
     LoggerModule.forRoot(),
   ],
   controllers: [AppController],
   providers: [AppService],
-  exports:[AppService]
+  exports: [AppService],
 })
-export class AppModule { }
+export class AppModule {}

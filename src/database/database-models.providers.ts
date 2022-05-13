@@ -5,9 +5,11 @@ import {
   DATABASE_CONNECTION,
   POST_MODEL,
   USER_MODEL,
+  BOOKCATEGORY_MODEL,
 } from './database.constants';
 import { Post, createPostModel } from './post.model';
 import { createUserModel } from './user.model';
+import { createBookCategoryModel } from './bookcategory.model';
 
 export const databaseModelsProviders = [
   {
@@ -23,6 +25,11 @@ export const databaseModelsProviders = [
   {
     provide: USER_MODEL,
     useFactory: (connection: Connection) => createUserModel(connection),
+    inject: [DATABASE_CONNECTION],
+  },
+  {
+    provide: BOOKCATEGORY_MODEL,
+    useFactory: (connection: Connection) => createBookCategoryModel(connection),
     inject: [DATABASE_CONNECTION],
   },
 ];
